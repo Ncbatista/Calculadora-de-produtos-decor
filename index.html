@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="css/styles.css" />
+<script src="js/scripts.js" defer></script>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+</head>
+
+<div class="box" id="details_texts_selects"><input type="hidden" name="idG" value="837">
+
+  <ul>
+    <label class="botao_selecao">Modelos: <select id="modeloescolhido" name="modelos">
+        <option class="select" value="Selecione uma opção">Selecione uma opção</option>
+        <option value="0,45">Junco 0,50mt largura - Metro</option>
+        <option value="0,80">Junco 0,90mt largura - Metro</option>
+        <option value="0,90">Junco 1,00mt largura- Metro</option>
+        <option value="1,20">Sintético 1,40mt largura - Metro</option>
+        <option value="0,90">Bambu 1,00x1,00mt - Placa</option>
+        <option value="1,40">Bambu 1,00x1,50mt - Placa</option>
+        <option value="1,40">Carnauba 0,90x1,50mt- Placa</option>
+        <option value="1,50">Taboa 1,00x1,80mt - Placa</option>
+
+
+      </select>
+    </label>
+
+    <label>Largura x Comprimento (em metros ex: 15 x 10)</label>
+    <div class="row">
+      <div class="col-md-6">
+        <input type="text" class="form-control" id="largura" placeholder="Largura">
+      </div>
+      <div class="col-md-6">
+        <input type="text" class="form-control" id="comprimento" placeholder="Comprimento">
+
+      </div>
+    </div>
+    <button class="btn btn-success" id="button01" onclick="calculartotal()">Calcular</button>
+    <div class="resultado">
+      <spam>Você precisará comprar: <spam id="valorinteiro"></spam>
+      </spam>
+      <spam class="resultado2">Não realizamos a instalação!</spam>
+    </div>
+    </label>
+  </ul>
+</div>
+
+<script>
+
+  function calculartotal() {
+    var modelo = parseFloat(document.getElementById("modeloescolhido").value.replace(",", "."));
+    var largura = document.getElementById("largura");
+    var comprimento = document.getElementById("comprimento");
+    var cal = (largura.value * comprimento.value) / modelo;
+    var valorinteiro = parseInt(cal);
+
+    if (valorinteiro > 0) {
+      var spam_valor_total = document.getElementById("valorinteiro");
+      spam_valor_total.innerHTML = valorinteiro;
+
+    } else {
+      var spam_valor_total = document.getElementById("valorinteiro");
+      spam_valor_total.innerHTML = 0;
+    }
+
+
+  };
+
+</script>
+
+
+
+</html>
